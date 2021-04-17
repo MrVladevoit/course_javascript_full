@@ -1,23 +1,7 @@
-# Files and directories created by pub
-.packages
-.buildlog
-.pub/
-.dart_tool/
 build/
 dist/
 node_modules/
-packages
-coverage
-pubspec.lock
-web/index.html
 .DS_Store
-
-# Files created by dart2js
-*.dart.js
-*.part.js
-*.js.deps
-*.js.map
-*.info.json
 
 # Directory created by dartdoc
 doc/api/
