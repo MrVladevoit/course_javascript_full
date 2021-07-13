@@ -24,3 +24,39 @@ const movieDB = {
     ]
 };
 
+const adv = document.querySelectorAll(".promo__adv img"),
+      poster = document.querySelector(".promo__bg"),
+      genre = poster.querySelector(".promo__genre"),
+      movieList = document.querySelector(".promo__interactive-list");
+
+// 1)
+adv.forEach(item => {
+    item.remove();
+});
+
+
+// 2)
+genre.textContent = "драма";
+
+// 3)
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+
+
+// 4) 
+movieList.innerHTML = "";
+
+movieDB.movies.sort();
+
+console.log(poster.innerHTML); // получить все элементы
+
+
+// += дополнительное присвавание
+// a = a + 1; тоже самое, что и a += 1; 
+
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item"> ${i + 1}. ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+});
