@@ -33,7 +33,7 @@ hearts.forEach(item => {
     console.log(item);
 });
 
-// 4.1) querySelector позволяет получить только один элемент со страницы. 
+// 4.2) querySelector позволяет получить только один элемент со страницы. 
 // Получает первый элемент.
 const oneHeart = document.querySelector('.heart');
 console.log(oneHeart);
