@@ -16,18 +16,18 @@ const btns = document.querySelectorAll("button");
 //     console.log("red");
 // }
 
-// btns[0].addEventListener("click", () => {
+btns[0].addEventListener("click", () => {
 
-//     if(!btns[1].classList.contains("red")) {
-//         btns[1].classList.add("red");
-//     } else {
-//         btns[1].classList.remove("red");
-//     }
-// });
+    if(!btns[1].classList.contains("red")) {
+        btns[1].classList.add("red");
+    } else {
+        btns[1].classList.remove("red");
+    }
+});
 
-// btns[0].addEventListener("click", () => {
-//     btns[1].classList.toggle("red");
-// });
+btns[0].addEventListener("click", () => {
+    btns[1].classList.toggle("red");
+});
 
 // className - устарело  и не нужно использовать в проектах
 // console.log(btns[0].className);
