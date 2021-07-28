@@ -1,3 +1,3 @@
-08. Tabs Lesson
-11. Timer Lesson
-12. Modal
+01. Tabs Lesson
+02. Timer Lesson
+03. Modal
