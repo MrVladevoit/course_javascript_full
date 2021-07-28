@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     // Start: Timer --------------------------
-    const deadline = '2021-07-22';
+    const deadline = '2021-09-22';
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()), // parse -получим колличество миллисекунд для расчетов
@@ -107,6 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
         modal.classList.add('show');
         modal.classList.remove('hide');
         document.body.style.overflow = 'hidden';
+        clearInterval(modalTimerId);
     }
 
     function closeModal() {
@@ -116,9 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     modalTrigger.forEach(btn => {
-        btn.addEventListener('click', () => {
-            openModal();
-        });
+        btn.addEventListener('click', openModal);
     });
 
     modalCloseBtn.addEventListener('click', closeModal);
@@ -134,5 +133,22 @@ window.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
+
+    // Start: Scroll event --------------------------
+
+    // Timer - показывать modal после 5сек, но если пользователь уже открывал модальное окно, то его не нужно показывать снова
+    const modalTimerId = setTimeout(openModal, 30000);
+
+    // Scroll
+    function showModalByScroll() {
+        if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);
+        }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);
+
+    // End: Scroll event --------------------------
     // End: Modal --------------------------
 });
