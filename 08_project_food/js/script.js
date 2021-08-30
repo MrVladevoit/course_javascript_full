@@ -305,4 +305,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 4000);
     }
     // End: AJAX FORM --------------------------
+
+    // FETCH
+    fetch('http://localhost:3000/menu')
+    .then(data => data.json())
+    .then(res => console.log(res));
 });
