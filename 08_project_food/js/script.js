@@ -406,11 +406,16 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function deleteNotDigits(str) {
+        return +str.replace(/\D/g, '');
+    }
+
     buttonNext.addEventListener('click', () => {
-        if (offset == +slidesWrapperWidth.slice(0, slidesWrapperWidth.length - 2) * (slides.length - 1)) {
+
+        if (offset == deleteNotDigits(slidesWrapperWidth) * (slides.length - 1)) {
             offset = 0;
         } else {
-            offset += +slidesWrapperWidth.slice(0, slidesWrapperWidth.length - 2);
+            offset += deleteNotDigits(slidesWrapperWidth);
         }
 
         changeOffset();
@@ -426,10 +431,11 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     
     buttonPrev.addEventListener('click', () => {
+
         if (offset == 0) {
-            offset = +slidesWrapperWidth.slice(0, slidesWrapperWidth.length - 2) * (slides.length - 1);
+            offset = deleteNotDigits(slidesWrapperWidth) * (slides.length - 1);
         } else {
-            offset -= +slidesWrapperWidth.slice(0, slidesWrapperWidth.length - 2);
+            offset -= deleteNotDigits(slidesWrapperWidth);
         }
 
         changeOffset();
@@ -449,7 +455,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const slideTo = e.target.getAttribute('data-slide-to');
             
             slideIntex = slideTo;
-            offset = +slidesWrapperWidth.slice(0, slidesWrapperWidth.length - 2) * (slideTo - 1);
+            offset = deleteNotDigits(slidesWrapperWidth) * (slideTo - 1);
 
             changeOffset();
             currentInit();
