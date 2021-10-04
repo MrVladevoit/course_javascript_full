@@ -1,3 +1,5 @@
+import { getResource } from "../services/services";
+
 function cards() {
 
     class MenuCard {
@@ -73,4 +75,4 @@ function cards() {
         });
 }
 
-module.exports = cards;
+export default cards;
