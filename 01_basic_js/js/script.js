@@ -19,5 +19,3 @@ number = 10;
 
 console.log(name);
 var name = 'Ivan';
-
-
