@@ -35,7 +35,57 @@ findMaxNumber(1, 5, '6', '10');  =>  0
 
 'use strict';
 
-// Место для первой задачи
+// Место для первой задачи - его решение
+function getTimeFromMinutes(minutesTotal) {
+    if(typeof(minutesTotal) !== 'number' || minutesTotal < 0 || !Number.isInteger(minutesTotal)) {
+        return "Ошибка, проверьте данные";
+    }
+
+    const hours = Math.floor(minutesTotal/60);
+    const minutes = minutesTotal % 60;
+
+    let hoursStr = '',
+        minutesStr ='';
+
+    switch (hours) {
+        case 0: 
+            hoursStr = 'часов';
+            break;
+        case 1:
+            hoursStr = 'час';
+            break;
+        case 2:
+        case 3:
+        case 4:
+            hoursStr = 'часа';
+            break;
+        default:
+            hoursStr = 'часов';
+    }
+
+    switch (minutes) {
+        case 0: 
+            minutesStr = 'минут';
+            break;
+        case 1:
+            minutesStr = 'минута';
+            break;
+        case 2:
+        case 3:
+        case 4:
+            minutesStr = 'минуты';
+            break;
+        default:
+            minutesStr = 'минут';
+    }
+
+    return `Это ${hours} ${hoursStr} и ${minutes} ${minutesStr}`;
+
+}
+
+console.log(getTimeFromMinutes(133));
+
+// Место для первой задачи - мое решение
 function getTimeFromMinutes(minutes) {
 
     if(typeof(minutes) !== 'number' || minutes < 0 || !Number.isInteger(minutes)) {
