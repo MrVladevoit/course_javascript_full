@@ -98,7 +98,6 @@ function getTimeFromMinutes(minutes) {
 
     const minutesWords = ['минута', 'минуты', 'минут'],
           hoursWords = ['час', 'часа', 'часов'];
-  
 
     function declOfNum(n, arr) {  
         n = Math.abs(n) % 100; 
@@ -153,3 +152,5 @@ function findMaxNumber(a, b, c, d) {
 console.log(findMaxNumber(1,2));
 console.log(findMaxNumber(1,2,4));
 console.log(findMaxNumber(1,2,5,1));
+console.log(findMaxNumber(1, 5, 6.6, 10.5));
+console.log(findMaxNumber(1, 5, '6', '10'));
