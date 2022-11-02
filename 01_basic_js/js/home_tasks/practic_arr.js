@@ -90,10 +90,16 @@ standardizeStrings(favoriteCities);
 // - Данные для первого аргумента должны приходить сразу из двух банков, причем сначала baseCurrencies, потом additionalCurrencies по порядку
 
 const someString = 'This is some strange string';
+// const someString = '';
+// const someString = 22;
 
 function reverse(str) {
-
-    return str.split("").reverse().join("");
+    if(typeof(str) !== 'string' || str === '') {
+        return 'Ошибка!';
+    } else {
+        return str.split("").reverse().join("");
+    }
+    
 }
 console.log(reverse(someString)); // gnirts egnarts emos si sihT
 
@@ -106,13 +112,10 @@ function availableCurr(arr, missingCurr) {
         currencies = baseCurrencies.concat(additionalCurrencies);
     
     if(arr === undefined || arr === null || arr.length === 0) {
-        return 'Нет доступных валют.';
+        return 'Нет доступных валют';
     }
 
     // filter by arr
-    currencies.filter(item => arr.includes(item));
-    console.log(currencies);
-
     result = currencies.filter(item => arr.includes(item));
 
     // filter by missingCurr
@@ -130,9 +133,9 @@ function availableCurr(arr, missingCurr) {
 
 // availableCurr();
 
-console.log(availableCurr(['UAH', 'RUB', 'CNY']));
-console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
-// console.log(availableCurr([], 'EUR'));
+// console.log(availableCurr(['UAH', 'RUB', 'CNY']));
+// console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
+console.log(availableCurr([], 'EUR'));
 // console.log(availableCurr(['USD', 'EUR', 'UAH', 'RUB', 'CNY'], 'EUR'));
 // Доступные валюты:
 // UAH
