@@ -1,3 +1,5 @@
+// 44. Практика. Задание на отработку действий со страницей
+
 /* Задания на урок:
 
 1) Удалить все рекламные блоки со страницы (правая часть сайта)
@@ -24,39 +26,31 @@ const movieDB = {
     ]
 };
 
-const adv = document.querySelectorAll(".promo__adv img"),
-      poster = document.querySelector(".promo__bg"),
-      genre = poster.querySelector(".promo__genre"),
-      movieList = document.querySelector(".promo__interactive-list");
+const promoAds = document.querySelectorAll('.promo__adv img'),
+      promoBg = document.querySelector('.promo__bg'),
+      promoGenre = promoBg.querySelector('.promo__genre'),
+      movieList = document.querySelector('.promo__interactive-list');
 
 // 1)
-adv.forEach(item => {
-    item.remove();
+promoAds.forEach(adv => {
+    adv.remove();
 });
 
+// 2) 
+promoGenre.textContent = 'Драма';
 
-// 2)
-genre.textContent = "драма";
-
-// 3)
-poster.style.backgroundImage = 'url("img/bg.jpg")';
-
+// 3) 
+promoBg.style.backgroundImage = 'url("./img/bg.jpg")';
 
 // 4) 
 movieList.innerHTML = "";
 
 movieDB.movies.sort();
 
-console.log(poster.innerHTML); // получить все элементы
-
-
-// += дополнительное присвавание
-// a = a + 1; тоже самое, что и a += 1; 
-
 movieDB.movies.forEach((film, i) => {
     movieList.innerHTML += `
-        <li class="promo__interactive-item"> ${i + 1}. ${film}
-            <div class="delete"></div>
-        </li>
+    <li class="promo__interactive-item"> ${i + 1} ${film}
+        <div class="delete"></div>
+    </li>
     `;
 });

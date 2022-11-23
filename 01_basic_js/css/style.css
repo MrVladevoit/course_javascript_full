@@ -76,3 +76,121 @@ button {
 	margin-top: 30px;
 	color: #fff;
 }
+
+:root {
+   --button-text-xl-fontSize: 18px;
+   --button-text-l-fontSize: 16px;
+   --button-text-m-fontSize: 14px;
+   --button-text-s-fontSize: 12px;
+   --h1-fontSize: 28px;
+   --h2-fontSize: 24px;
+   --h3-fontSize: 20px;
+   --h4-fontSize: 18px;
+   --h5-fontSize: 16px;
+   --h6-fontSize: 14px;
+   --text-xs-fontSize: 10px;
+   --text-s-fontSize: 12px;
+   --text-m-fontSize: 14px;
+   --text-l-fontSize: 16px;
+   --text-xl-fontSize: 18px;
+   --textBold-xs-fontSize: 10px;
+   --textBold-s-fontSize: 12px;
+   --textBold-m-fontSize: 14px;
+   --textBold-l-fontSize: 16px;
+   --textBold-xl-fontSize: 18px;
+}
+
+:root {
+   --button-text-xl-fontSize: 1.2rem;
+   --button-text-l-fontSize: 1rem;
+   --button-text-m-fontSize: 0.875rem;
+   --button-text-s-fontSize: 0.75rem;
+   --h1-fontSize: 1.75rem;
+   --h2-fontSize: 1.5rem;
+   --h3-fontSize: 1.25rem;
+   --h4-fontSize: 1.125rem;
+   --h5-fontSize: 1rem;
+   --h6-fontSize: 0.875rem;
+   --text-xs-fontSize: 0.625rem;
+   --text-s-fontSize: 0.75rem;
+   --text-m-fontSize: 0.875rem;
+   --text-l-fontSize: 1rem;
+   --text-xl-fontSize: 1.2rem;
+   --textBold-xs-fontSize: 625rem;
+   --textBold-s-fontSize: 0.75rem;
+   --textBold-m-fontSize: 0.875rem;
+   --textBold-l-fontSize: 1rem;
+   --textBold-xl-fontSize: 1.2rem;
+}
+
+@fontSize-m: var(--fontSize-m, 14px);
+@fontWeight-regular: var(--fontWeight-regular, 400);
+@lineHeight-m: var(--lineHeight-m, 1.2);
+@lineBox-m: var(--lineBox-m, 20px);
+
+--text-m-fontSize: var(--fontSize-m);
+--text-m-fontWeight: var(--fontWeight-regular);
+--text-m-lineHeight: var(--lineHeight-m);
+--text-m-lineBox: var(--lineBox-m);
+
+@text-m-fontSize: var(--text-m-fontSize, 14px);
+@text-m-lineHeight: var(--text-m-lineHeight, 20px);
+@text-m-lineBox: var(--text-m-lineBox, 20px);
+
+.text-m(@weight: @fontWeight-regular) {
+  font-size: @text-m-fontSize;
+  line-height: @text-m-lineHeight;
+  font-weight: @weight;
+}
+
+.mixin-less(@weight: @fontWeight-regular) {
+   font-size: @text-xx-fontSize;
+   line-height: @text-xx-lineHeight;
+   font-weight: @weight;
+}
+
+:host {
+   display: block;
+
+   p {
+      padding: calc((@kit-control-size-m - @text-m-lineBox) / 2)  0;
+      color: @light-neutral-90-textColor;
+      .text-m();
+
+      span {
+         font-weight: @fontWeight-semibold;
+      }
+   }
+
+   .text__element {
+      .text-m(@weight: @fontWeight-bold); // should be bolder
+   }
+}
+
+// We want change span font-weight, but we use text-m-fontWeight
+h4 {
+   .h4();
+
+   span {
+      // TODO: [crafting-tokens-typography] Used line-height token without mixin
+      font-weight: @text-m-fontWeight;
+   }
+}
+
+   .title {
+      .h4();
+
+      span {
+         font-weight: @fontWeight-regular;
+      }
+   }
+
+h4 {
+   font-size: var(--h4-fontSize, 18px);
+   line-height: var(--h4-lineHeight, 24px);
+   font-weight: var(--h4-fontWeight, 600);
+}
+
+h4 span {
+   font-weight: var(--text-m-fontWeight, 400);
+}
