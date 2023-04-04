@@ -1,0 +1,17 @@
+{
+  "name": "00my",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^107.0.3",
+    "fs": "^0.0.1-security",
+    "scrapingbee": "^1.6.1",
+    "selenium-webdriver": "^4.6.1"
+  }
+}
